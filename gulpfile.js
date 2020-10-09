@@ -94,15 +94,15 @@ const images = () => {
 
 exports.images = images;
 
-//Webpack
+//WebP
 
-const webpack = () => {
+const webP = () => {
   return gulp.src("source/img/**/*.{png,jpg}")
     .pipe(webp({quality: 90}))
     .pipe(gulp.dest("build/img"));
 };
 
-exports.webpack = webpack;
+exports.webP = webP;
 
 //Sprite
 
@@ -150,7 +150,7 @@ exports.clean = clean;
 
 //Build
 
-const build = gulp.series(clean, copy, styles, js, sprite, webpack, images, html);
+const build = gulp.series(clean, copy, styles, js, sprite, webP, images, html);
 
 exports.build = build;
 

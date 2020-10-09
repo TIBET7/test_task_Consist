@@ -9,143 +9,141 @@
 <body class="page">
 
 <!-- Header -->
-    <header class="header">
-      <div class="container">
-        <div class="header__inner">
-          <h1 class="header__title">Тестовое задание</h1>
-          <div class="header__exit">
-            <a href="#" class="header__exit-link">
-          </div>
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <h1 class="header__title">Тестовое задание</h1>
+        <div class="header__exit">
+          <a href="#" class="header__exit-link">
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <div class="container">
+  <div class="container">
 
-      <div class="main">
-        <div class="main__left">
-          <div class="main__left-top">
+    <div class="main">
+      <div class="main__left">
+        <div class="main__left-top">
 
-            <div class="controls">
-              <div class="controls__left">
-                <button class="button button--add" type="button"></button>
-                <button class="button button--delete" type="button"></button>
-              </div>
-              <div class="controls__right">
-                <button class="button button--visible" type="button"></button>
-                <button class="button button--hidden" type="button"></button>
-              </div>
+          <div class="controls">
+            <div class="controls__left">
+              <button class="button button--add" type="button"></button>
+              <button class="button button--delete" type="button"></button>
+            </div>
+            <div class="controls__right">
+              <button class="button button--visible" type="button"></button>
+              <button class="button button--hidden" type="button"></button>
             </div>
           </div>
+        </div>
 
-          <div class="elements">
-            <div class="elements__header">
+        <div class="elements">
+          <div class="elements__header">
 
-                <div class="elements__header-checkbox">
+            <div class="elements__header-checkbox">
+              <label class="check">
+                <input type="checkbox" class="check__input check__input--main visually-hidden" name="header-checkbox" checked>
+                <span class="check__box check__box--main"></span>
+              </label>
+            </div>
+            <div class="elements__header-name">Название</div>
+            <div class="elements__header-sort"></div>
+            <div class="elements__header-description">Описание</div>
+            <div class="elements__header-visibility"></div>
+          </div>
+
+          <table class="elements__items">
+            <tr class="elements__item active">
+              <td>
+                <div class="elements__item-checkbox">
                   <label class="check">
-                    <input type="checkbox" class="check__input visually-hidden" name="header-checkbox" checked>
+                    <input type="checkbox" class="check__input check__input--element visually-hidden" name="header-checkbox">
                     <span class="check__box"></span>
                   </label>
                 </div>
-                <div class="elements__header-name">Название</div>
-                <div class="elements__header-sort"></div>
-                <div class="elements__header-description">Описание</div>
-                <div class="elements__header-visibility"></div>
+              </td>
+              <td class="elements__item-name">Элемент #1</td>
+              <td class="elements__item-description">Описание элемента #1</td>
+              <td class="elements__item-visibility"></td>
+            </tr>
+            <tr class="elements__item visible">
+              <td>
+                <div class="elements__item-checkbox">
+                  <label class="check">
+                    <input type="checkbox" class="check__input check__input--element visually-hidden" name="header-checkbox">
+                    <span class="check__box"></span>
+                  </label>
+                </div>
+              </td>
+              <td class="elements__item-name">Элемент #2</td>
+              <td class="elements__item-description">Описание элемента #2</td>
+              <td class="elements__item-visibility"></td>
+            </tr>
+            <tr class="elements__item hidden">
+              <td>
+                <div class="elements__item-checkbox">
+                  <label class="check">
+                    <input type="checkbox" class="check__input check__input--element visually-hidden" name="header-checkbox">
+                    <span class="check__box"></span>
+                  </label>
+                </div>
+              </td>
+              <td class="elements__item-name">Элемент #3</td>
+              <td class="elements__item-description">Описание элемента #3</td>
+              <td class="elements__item-visibility invisible"></td>
+            </tr>
+            <tr class="elements__item hidden">
+              <td>
+                <div class="elements__item-checkbox">
+                  <label class="check">
+                    <input type="checkbox" class="check__input check__input--element visually-hidden" name="header-checkbox">
+                    <span class="check__box"></span>
+                  </label>
+                </div>
+              </td>
+              <td class="elements__item-name">Элемент #4</td>
+              <td class="elements__item-description">Описание элемента #4</td>
+              <td class="elements__item-visibility invisible"></td>
+            </tr>
+            <tr class="elements__item visible">
+              <td>
+                <div class="elements__item-checkbox">
+                  <label class="check">
+                    <input type="checkbox" class="check__input check__input--element visually-hidden" name="header-checkbox">
+                    <span class="check__box"></span>
+                  </label>
+                </div>
+              </td>
+              <td class="elements__item-name">Элемент #5</td>
+              <td class="elements__item-description">Описание элемента #5</td>
+              <td class="elements__item-visibility"></td>
+            </tr>
+          </table>
+        </div><!-- /elements -->
+      </div>
+      <div class="main__right">
+        <div class="editor">
+          <h2 class="editor__title">Редактирование элемента</h2>
+          <form action="#" class="editor__form" method="post">
+            <input type="text" class="editor__element-name" name="name" placeholder="Название">
+            <textarea name="description" id="" cols="30" rows="10" class="editor__element-description" placeholder="Описание"></textarea>
+            <div class="editor__checkbox">
+              <label class="check check--editor">
+                <input type="checkbox" class="check__input visually-hidden" name="visibility" checked>
+                <span class="check__box check__box--editor"></span>
+                Видимый
+              </label>
             </div>
-
-            <table class="elements__items">
-              <tr class="elements__item active">
-                <td>
-                  <div class="elements__item-checkbox">
-                    <label class="check">
-                      <input type="checkbox" class="check__input visually-hidden" name="header-checkbox">
-                      <span class="check__box"></span>
-                    </label>
-                  </div>
-                </td>
-                <td class="elements__item-name">Элемент #1</td>
-                <td class="elements__item-description">Описание элемента #1</td>
-                <td class="elements__item-visibility"></td>
-              </tr>
-              <tr class="elements__item visible">
-                <td>
-                  <div class="elements__item-checkbox">
-                    <label class="check">
-                      <input type="checkbox" class="check__input visually-hidden" name="header-checkbox">
-                      <span class="check__box"></span>
-                    </label>
-                  </div>
-                </td>
-                <td class="elements__item-name">Элемент #2</td>
-                <td class="elements__item-description">Описание элемента #2</td>
-                <td class="elements__item-visibility"></td>
-              </tr>
-              <tr class="elements__item hidden">
-                <td>
-                  <div class="elements__item-checkbox">
-                    <label class="check">
-                      <input type="checkbox" class="check__input visually-hidden" name="header-checkbox">
-                      <span class="check__box"></span>
-                    </label>
-                  </div>
-                </td>
-                <td class="elements__item-name">Элемент #3</td>
-                <td class="elements__item-description">Описание элемента #3</td>
-                <td class="elements__item-visibility invisible"></td>
-              </tr>
-              <tr class="elements__item hidden">
-                <td>
-                  <div class="elements__item-checkbox">
-                    <label class="check">
-                      <input type="checkbox" class="check__input visually-hidden" name="header-checkbox">
-                      <span class="check__box"></span>
-                    </label>
-                  </div>
-                </td>
-                <td class="elements__item-name">Элемент #4</td>
-                <td class="elements__item-description">Описание элемента #4</td>
-                <td class="elements__item-visibility invisible"></td>
-              </tr>
-              <tr class="elements__item visible">
-                <td>
-                  <div class="elements__item-checkbox">
-                    <label class="check">
-                      <input type="checkbox" class="check__input visually-hidden" name="header-checkbox">
-                      <span class="check__box"></span>
-                    </label>
-                  </div>
-                </td>
-                <td class="elements__item-name">Элемент #5</td>
-                <td class="elements__item-description">Описание элемента #5</td>
-                <td class="elements__item-visibility"></td>
-              </tr>
-            </table>
-          </div><!-- /elements -->
-        </div>
-        <div class="main__right">
-          <div class="editor">
-            <h2 class="editor__title">Редактирование элемента</h2>
-            <form action="#" class="editor__form" method="post">
-              <input type="text" class="editor__element-name" name="name" placeholder="Название">
-              <textarea name="description" id="" cols="30" rows="10" class="editor__element-description" placeholder="Описание"></textarea>
-              <div class="editor__checkbox">
-                <label class="check check--editor">
-                  <input type="checkbox" class="check__input visually-hidden" name="visibility" checked>
-                  <span class="check__box check__box--editor"></span>
-                  Видимый
-                </label>
-              </div>
-              <div class="editor__controls">
-                <button class="editor__apply" type="submit">Применить</button>
-                <button class="editor__undo" type="submit">Отменить</button>
-              </div>
-            </form>
-          </div>
+            <div class="editor__controls">
+              <button class="editor__apply" type="submit">Применить</button>
+              <button class="editor__undo" type="submit">Отменить</button>
+            </div>
+          </form>
         </div>
       </div>
-    </div><!-- /container -->
-
-
-
+    </div>
+  </div><!-- /container -->
+  <script src="js/script.min.js"></script>
 </body>
 </html>
