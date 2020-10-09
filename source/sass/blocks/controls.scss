@@ -1,0 +1,15 @@
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
+.controls__left {
+  display: flex;
+  width: 211px;
+}
+
+.controls__right {
+  display: flex;
+  justify-content: flex-end;
+  width: 211px;
+}

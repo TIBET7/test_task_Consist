@@ -1,0 +1,58 @@
+.editor__title {
+  margin: 0;
+  margin-top: 19px;
+  margin-bottom: 24px;
+  font-size: 18px;
+  line-height: 21px;
+  color: $editor-title;
+  font-weight: normal;
+}
+
+.editor__element-name {
+  margin-bottom: 16px;
+  padding-left: 11px;
+  width: 378px;
+  min-height: 32px;
+  background-color: $active;
+  border: 1px solid $header-background;
+  @include basic-dark-text;
+}
+
+.editor__element-description {
+  margin-bottom: 16px;
+  padding-left: 11px;
+  padding-top: 15px;
+  width: 378px;
+  background-color: $active;
+  border: 1px solid $header-background;
+  @include basic-dark-text;
+}
+
+.editor__controls {
+  display: flex;
+}
+
+.editor__apply,
+.editor__undo {
+  width: 174px;
+  height: 32px;
+  border: none;
+  outline: none;
+  @include basic-dark-text;
+  color: $editor-title;
+}
+
+.editor__apply {
+  background-color: $active;
+  margin-right: 30px;
+}
+
+.editor__undo {
+  background-color: $hidden;
+}
+
+
+
+
+
+

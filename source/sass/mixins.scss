@@ -1,0 +1,18 @@
+@mixin basic-light-text {
+  font-size: 12px;
+  line-height: 14px;
+  color: $light-text;
+  font-weight: normal;
+}
+
+@mixin basic-dark-text {
+  font-size: 12px;
+  line-height: 14px;
+  color: $dark-text;
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

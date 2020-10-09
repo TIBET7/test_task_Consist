@@ -1,0 +1,104 @@
+/* Elements__header*/
+
+.elements__header {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.elements__header-checkbox,
+.elements__header-visibility {
+  width: 32px;
+  height: 32px;
+  background-color: $header-background;
+}
+
+.elements__header-name {
+  padding-top: 10px;
+  padding-left: 14px;
+  width: 130px;
+  height: 32px;
+  background-color: $header-background;
+  @include basic-light-text;
+}
+
+.elements__header-sort {
+  padding-top: 10px;
+  width: 20px;
+  height: 32px;
+  background-color: $header-background;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.59 7.41L6 2.83L1.41 7.41L0 6L6 3.8147e-06L12 6L10.59 7.41Z' fill='white'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 center;
+}
+
+.elements__header-description {
+  padding-top: 10px;
+  padding-left: 14px;
+  width: 202px;
+  height: 32px;
+  background-color: $header-background;
+  @include basic-light-text;
+}
+
+.elements__header-checkbox,
+.elements__header-sort,
+.elements__header-description {
+  margin-right: 2px;
+}
+
+.elements__header-visibility,
+.elements__item-visibility {
+  background-image: url("data:image/svg+xml,%3Csvg width='22' height='16' viewBox='0 0 22 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 0.5C6 0.5 1.73 3.61 0 8C1.73 12.39 6 15.5 11 15.5C16 15.5 20.27 12.39 22 8C20.27 3.61 16 0.5 11 0.5ZM11 13C8.24 13 6 10.76 6 8C6 5.24 8.24 3 11 3C13.76 3 16 5.24 16 8C16 10.76 13.76 13 11 13ZM11 5C9.34 5 8 6.34 8 8C8 9.66 9.34 11 11 11C12.66 11 14 9.66 14 8C14 6.34 12.66 5 11 5Z' fill='white'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.elements__header-checkbox,
+.elements__item-checkbox {
+  position: relative;
+}
+
+/* Elements__items*/
+
+.elements__items {
+border-spacing: 0 8px;
+}
+
+.elements__item.hidden {
+  background-color: $hidden;
+}
+
+.elements__item.active{
+  background-color: $active;
+}
+
+.elements__item.visible{
+  background-color: $body-background;
+}
+
+.elements__item-checkbox,
+.elements__item-visibility {
+  width: 32px;
+  height: 32px;
+  //background-color: $hidden;
+}
+
+.elements__item-name {
+  padding-left: 15px;
+  width: 150px;
+  //background-color: $hidden;
+}
+
+.elements__item-description {
+  width: 202px;
+  //background-color: $hidden;
+}
+
+
+
+
+
+
+
+
+
