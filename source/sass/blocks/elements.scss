@@ -64,16 +64,17 @@
 border-spacing: 0 8px;
 }
 
+.elements__item.visible,
+.elements__item {
+  background-color: $body-background;
+}
+
 .elements__item.hidden {
   background-color: $hidden;
 }
 
 .elements__item.active{
   background-color: $active;
-}
-
-.elements__item.visible{
-  background-color: $body-background;
 }
 
 .elements__item-checkbox,
