@@ -1,5 +1,8 @@
 'use strict';
 
+import checkAll from './modules/checkAll.js';
+import deleteCheckedElements from './modules/deleteElement.js';
+
 const mainCheckbox = document.querySelector('.check__input--main');
 const checkboxes = document.querySelectorAll('.check__input--element');
 const elements = document.querySelectorAll('.elements__item');
@@ -8,7 +11,11 @@ const descriptionInput = document.querySelector('.editor__element-description');
 const submitBtn = document.querySelector('.editor__submit');
 const resetBtn = document.querySelector('.editor__reset');
 const addBtn = document.querySelector('.button--add');
+const deleteBtn = document.querySelector('.button--delete');
 const table = document.querySelector('tbody')
+
+checkAll(mainCheckbox, checkboxes);
+deleteCheckedElements(deleteBtn, checkboxes, table);
 
 addBtn.addEventListener('click', () => {
   const newElement = document.createElement('tr');
@@ -26,19 +33,31 @@ addBtn.addEventListener('click', () => {
 <td class="elements__item-description"></td>
 <td class="elements__item-visibility"></td>`;
 table.append(newElement);
-console.log(elements);
+const updatedElements = document.querySelectorAll('.elements__item');
+console.log(updatedElements);
 });
 
-mainCheckbox.addEventListener('click', () => {
-  checkboxes.forEach((checkbox) => {
-    if (mainCheckbox.checked) {
-      checkbox.checked = true;
-    }
-    if (!mainCheckbox.checked) {
-      checkbox.checked = false;
-    }
-  });
-});
+// deleteBtn.addEventListener('click', () => {
+//   checkboxes.forEach((checkbox) => {
+//     if (checkbox.checked) {
+//       console.log(checkbox.parentNode.parentNode.parentNode.parentNode);
+//       table.removeChild(checkbox.parentElement.parentElement.parentElement.parentElement);
+//     }
+//   });
+// });
+
+
+
+// mainCheckbox.addEventListener('click', () => {
+//   checkboxes.forEach((checkbox) => {
+//     if (mainCheckbox.checked) {
+//       checkbox.checked = true;
+//     }
+//     if (!mainCheckbox.checked) {
+//       checkbox.checked = false;
+//     }
+//   });
+// });
 
 elements.forEach((element) => {
   element.addEventListener('click', (event) => {
@@ -69,6 +88,5 @@ elements.forEach((element) => {
     // });
   });
 });
-
 
 
