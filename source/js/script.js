@@ -8,7 +8,26 @@ const descriptionInput = document.querySelector('.editor__element-description');
 const submitBtn = document.querySelector('.editor__submit');
 const resetBtn = document.querySelector('.editor__reset');
 const addBtn = document.querySelector('.button--add');
+const table = document.querySelector('tbody')
 
+addBtn.addEventListener('click', () => {
+  const newElement = document.createElement('tr');
+  newElement.classList.add('elements__item');
+  newElement.classList.add('active');
+  newElement.innerHTML = `<td>
+  <div class="elements__item-checkbox">
+    <label class="check">
+      <input type="checkbox" class="check__input check__input--element visually-hidden" name="header-checkbox">
+      <span class="check__box"></span>
+    </label>
+  </div>
+</td>
+<td class="elements__item-name">Без названия</td>
+<td class="elements__item-description"></td>
+<td class="elements__item-visibility"></td>`;
+table.append(newElement);
+console.log(elements);
+});
 
 mainCheckbox.addEventListener('click', () => {
   checkboxes.forEach((checkbox) => {
@@ -51,7 +70,5 @@ elements.forEach((element) => {
   });
 });
 
-addBtn.addEventListener('click', () => {
-  const newElement = 
-});
+
 
