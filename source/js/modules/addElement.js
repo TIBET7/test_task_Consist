@@ -23,9 +23,7 @@ const addElement = (addButton, parentElement, elementSelector, firstInput, secon
   newElement.classList.add('active');
   firstInput.value = newElement.children[1].children[0].textContent;
   secondInput.value = newElement.children[1].children[1].textContent;
-  updatedCheckboxes = document.querySelectorAll('.check__input--element');
   });
-  return updatedCheckboxes;
 };
 
 export default addElement;

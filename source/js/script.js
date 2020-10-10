@@ -20,28 +20,40 @@ const elementsBlock = document.querySelector('.elements__items');
 activateElement(elements, elementsMainBlocks, nameInput, descriptionInput);
 addElement(addBtn, elementsBlock, '.elements__item', nameInput, descriptionInput);
 checkAll(mainCheckbox, checkboxes);
-deleteCheckedElements(deleteBtn, checkboxes, elementsBlock);
+
 
 addBtn.addEventListener('click', () => {
   const updatedCheckboxes = document.querySelectorAll('.check__input--element');
+  const updatedElements = document.querySelectorAll('.elements__item');
+  const updatedElementsMainBlocks = document.querySelectorAll('.elements__item-main');
   console.log(updatedCheckboxes);
   checkAll(mainCheckbox, updatedCheckboxes);
+  activateElement(updatedElements, updatedElementsMainBlocks, nameInput, descriptionInput);
 });
 
+deleteBtn.addEventListener('click', () => {
+  const updatedCheckboxes = document.querySelectorAll('.check__input--element');
+  console.log(updatedCheckboxes);
+  checkAll(mainCheckbox, updatedCheckboxes);
+  //deleteCheckedElements(deleteBtn, updatedCheckboxes, elementsBlock);
+})
 
-
-
-
-
+deleteCheckedElements(deleteBtn, checkboxes, elementsBlock);
 
 // deleteBtn.addEventListener('click', () => {
+//   console.log('test');
 //   checkboxes.forEach((checkbox) => {
 //     if (checkbox.checked) {
-//       console.log(checkbox.parentNode.parentNode.parentNode.parentNode);
-//       table.removeChild(checkbox.parentElement.parentElement.parentElement.parentElement);
+//       console.log(checkbox.parentNode.parentNode.parentNode);
+//       elementsBlock.removeChild(checkbox.parentElement.parentElement.parentElement);
 //     }
 //   });
 // });
+
+
+
+
+
 
 
 

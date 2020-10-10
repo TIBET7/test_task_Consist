@@ -32,8 +32,8 @@
   display: flex;
 }
 
-.editor__apply,
-.editor__undo {
+.editor__submit,
+.editor__reset {
   width: 174px;
   height: 32px;
   border: none;
@@ -42,12 +42,12 @@
   color: $editor-title;
 }
 
-.editor__apply {
+.editor__submit {
   background-color: $active;
   margin-right: 30px;
 }
 
-.editor__undo {
+.editor__reset {
   background-color: $hidden;
 }
 
