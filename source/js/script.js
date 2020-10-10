@@ -6,7 +6,7 @@ import activateElement from './modules/activateElement.js';
 import addElement from './modules/addElement.js';
 
 const mainCheckbox = document.querySelector('.check__input--main');
-const checkboxes = document.querySelectorAll('.check__input--element');
+let checkboxes = document.querySelectorAll('.check__input--element');
 const elements = document.querySelectorAll('.elements__item');
 const elementsMainBlocks = document.querySelectorAll('.elements__item-main');
 const nameInput = document.querySelector('.editor__element-name');
@@ -17,10 +17,19 @@ const addBtn = document.querySelector('.button--add');
 const deleteBtn = document.querySelector('.button--delete');
 const elementsBlock = document.querySelector('.elements__items');
 
-checkAll(mainCheckbox, checkboxes);
-deleteCheckedElements(deleteBtn, checkboxes, elementsBlock);
 activateElement(elements, elementsMainBlocks, nameInput, descriptionInput);
 addElement(addBtn, elementsBlock, '.elements__item', nameInput, descriptionInput);
+checkAll(mainCheckbox, checkboxes);
+deleteCheckedElements(deleteBtn, checkboxes, elementsBlock);
+
+addBtn.addEventListener('click', () => {
+  const updatedCheckboxes = document.querySelectorAll('.check__input--element');
+  console.log(updatedCheckboxes);
+  checkAll(mainCheckbox, updatedCheckboxes);
+});
+
+
+
 
 
 
