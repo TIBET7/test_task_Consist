@@ -61,7 +61,19 @@
 /* Elements__items*/
 
 .elements__items {
-border-spacing: 0 8px;
+  @include list-reset;
+}
+
+.elements__item {
+  display: flex;
+  @include list-reset;
+  margin-bottom: 8px;
+
+}
+
+.elements__item-main {
+  display: flex;
+  @include basic-light-text;
 }
 
 .elements__item.visible,
@@ -85,11 +97,14 @@ border-spacing: 0 8px;
 
 .elements__item-name {
   padding-left: 15px;
+  padding-top: 10px;
   width: 150px;
 }
 
 .elements__item-description {
   width: 202px;
+  padding-top: 10px;
+  padding-left: 17px;
 }
 
 .elements__item-visibility.invisible {
