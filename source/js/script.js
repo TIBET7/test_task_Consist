@@ -28,6 +28,8 @@ addElement(addBtn, elementsBlock, '.elements__item', nameInput, descriptionInput
 
 checkAll(mainCheckbox, checkboxes);
 
+deleteCheckedElements(deleteBtn, checkboxes, elementsBlock);
+
 filterElements(hiddenElementsBtn, visibleElementsBtn, hiddenElements);
 filterElements(visibleElementsBtn, hiddenElementsBtn, visibleElements);
 
@@ -41,39 +43,53 @@ addBtn.addEventListener('click', () => {
   // console.log(updatedVisibleElements);
   checkAll(mainCheckbox, updatedCheckboxes);
   activateElement(updatedElements, updatedElementsMainBlocks, nameInput, descriptionInput);
-
-  // updatedVisibleElements.forEach((element) => {
-  //   element.classList.remove('hide');
-  //   console.log(element);
-  // });
-
-  // visibleElementsBtn.addEventListener('click', () => {
-  //   updatedVisibleElements.forEach((item) => {
-  //     console.log(item)
-  //     item.classList.toggle('hide');
-  //   });
-    // updatedVisibleElements.forEach((item) => {
-    //   console.log(item)
-    //   item.classList.toggle('hide');
-    // });
-  // });
+  deleteCheckedElements(deleteBtn, updatedCheckboxes, elementsBlock);
 });
 
 deleteBtn.addEventListener('click', () => {
   const updatedCheckboxes = document.querySelectorAll('.check__input--element');
-  console.log(updatedCheckboxes);
+  const updatedElements = document.querySelectorAll('.elements__item');
+  const updatedVisibleElements = document.querySelectorAll('.elements__item.visible');
+  //console.log(updatedVisibleElements);
+  const updatedElementsMainBlocks = document.querySelectorAll('.elements__item-main');
+  //console.log(updatedCheckboxes);
+  // console.log(updatedVisibleElements);
   checkAll(mainCheckbox, updatedCheckboxes);
-  //deleteCheckedElements(deleteBtn, updatedCheckboxes, elementsBlock);
-})
-
-deleteCheckedElements(deleteBtn, checkboxes, elementsBlock);
-
-elements.forEach((element) => {
-  if (!element.classList.contains('.active')) {
-    nameInput.disabled = true;
-    descriptionInput.disabled = true;
-  }
+  activateElement(updatedElements, updatedElementsMainBlocks, nameInput, descriptionInput);
+  deleteCheckedElements(deleteBtn, updatedCheckboxes, elementsBlock);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// deleteBtn.addEventListener('click', () => {
+//   const updatedCheckboxes = document.querySelectorAll('.check__input--element');
+//   console.log(updatedCheckboxes);
+//   checkAll(mainCheckbox, updatedCheckboxes);
+//   //deleteCheckedElements(deleteBtn, updatedCheckboxes, elementsBlock);
+// })
+
+
+
+// elements.forEach((element) => {
+//   if (!element.classList.contains('.active')) {
+//     nameInput.disabled = true;
+//     descriptionInput.disabled = true;
+//   }
+// });
 
 
 
