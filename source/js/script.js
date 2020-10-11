@@ -28,17 +28,8 @@ addElement(addBtn, elementsBlock, '.elements__item', nameInput, descriptionInput
 
 checkAll(mainCheckbox, checkboxes);
 
-
-
-if (visibleElementsBtn.classList.contains('active')) {
-  filterElements(hiddenElementsBtn, hiddenElements, 'active', 'hide');
-}
-
-if (hiddenElementsBtn.classList.contains('active')) {
-  filterElements(visibleElementsBtn, visibleElements, 'active', 'hide');
-}
-
-
+filterElements(hiddenElementsBtn, visibleElementsBtn, hiddenElements);
+filterElements(visibleElementsBtn, hiddenElementsBtn, visibleElements);
 
 addBtn.addEventListener('click', () => {
   const updatedCheckboxes = document.querySelectorAll('.check__input--element');
