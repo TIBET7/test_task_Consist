@@ -1,6 +1,6 @@
 'use strict';
 
-const activateElement = (elementsList, elementsMainBlockList, firstInput, secondInput) => {
+const activateElement = (elementsList, elementsMainBlockList, firstInput, secondInput, thirdInput) => {
   elementsMainBlockList.forEach((element) => {
     element.addEventListener('click', (event) => {
       for (let i = 0; i < elementsList.length; i += 1) {
@@ -13,6 +13,8 @@ const activateElement = (elementsList, elementsMainBlockList, firstInput, second
       secondInput.value = elementChildren[1].textContent;
       firstInput.disabled = false;
       secondInput.disabled = false;
+      thirdInput.disabled = false;
+
     });
   });
 };
