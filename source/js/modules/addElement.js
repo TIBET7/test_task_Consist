@@ -21,6 +21,7 @@ const addElement = (addButton, parentElement, elementSelector, firstInput, secon
     element.classList.remove('active');
   });
   newElement.classList.add('active');
+  newElement.classList.add('visible');
   firstInput.value = newElement.children[1].children[0].textContent;
   secondInput.value = newElement.children[1].children[1].textContent;
   });

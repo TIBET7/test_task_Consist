@@ -11,6 +11,8 @@ const activateElement = (elementsList, elementsMainBlockList, firstInput, second
       const elementChildren = event.currentTarget.children;
       firstInput.value = elementChildren[0].textContent;
       secondInput.value = elementChildren[1].textContent;
+      firstInput.disabled = false;
+      secondInput.disabled = false;
     });
   });
 };

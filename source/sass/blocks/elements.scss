@@ -89,6 +89,10 @@
   background-color: $active;
 }
 
+.elements__item.hide {
+  display: none;
+}
+
 .elements__item-checkbox,
 .elements__item-visibility {
   width: 32px;

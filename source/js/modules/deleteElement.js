@@ -6,7 +6,6 @@ const deleteCheckedElements = (deleteButton, checkboxList, parent) => {
       console.log(checkbox.parentElement.parentElement.parentElement);
       if (checkbox.checked) {
         parent.removeChild(checkbox.parentElement.parentElement.parentElement);
-
       }
     });
   });
