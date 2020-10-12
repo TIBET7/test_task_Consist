@@ -84,14 +84,14 @@ form.addEventListener('submit', (event) => {
   console.log(formDataObject);
 });
 
-form.addEventListener('reset', (event) => {
-  elements.forEach((element) => {
-    if (element.classList.contains('active')) {
-      nameInput.value = elementChildren[0].textContent;
-      descriptionInput.value = elementChildren[1].textContent;
-    }
-  })
-});
+// form.addEventListener('reset', (event) => {
+//   elements.forEach((element) => {
+//     if (element.classList.contains('active')) {
+//       nameInput.value = elementChildren[0].textContent;
+//       descriptionInput.value = elementChildren[1].textContent;
+//     }
+//   })
+// });
 
 
 
