@@ -22,8 +22,23 @@ const addElement = (addButton, parentElement, elementSelector, firstInput, secon
   });
   newElement.classList.add('active');
   newElement.classList.add('visible');
-  firstInput.value = newElement.children[1].children[0].textContent;
-  secondInput.value = newElement.children[1].children[1].textContent;
+  let elementName = newElement.children[1].children[0].textContent;
+  let elementDescription = newElement.children[1].children[1].textContent;
+
+  firstInput.value = elementName;
+  secondInput.value = elementDescription;
+  const form = document.querySelector('.editor__form');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const formDataObject = Object.fromEntries(formData);
+    console.log(formDataObject);
+    elementName = formDataObject.name;
+    elementDescription = formDataObject.description;
+    console.log(elementName);
+    console.log(elementDescription);
+  });
+
   });
 };
 
