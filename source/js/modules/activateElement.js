@@ -1,6 +1,8 @@
 'use strict';
 
-const activateElement = (elementsList, elementsMainBlockList, firstInput, secondInput, thirdInput) => {
+import editElement from './editElement.js'
+
+const activateElement = (elementsList, elementsMainBlockList, inputs, formElement, formButtons) => {
   elementsMainBlockList.forEach((element) => {
     element.addEventListener('click', (event) => {
       for (let i = 0; i < elementsList.length; i += 1) {
@@ -9,12 +11,15 @@ const activateElement = (elementsList, elementsMainBlockList, firstInput, second
       const currentTargetParent = event.currentTarget.parentElement;
       currentTargetParent.classList.add('active');
       const elementChildren = event.currentTarget.children;
-      firstInput.value = elementChildren[0].textContent;
-      secondInput.value = elementChildren[1].textContent;
-      firstInput.disabled = false;
-      secondInput.disabled = false;
-      thirdInput.disabled = false;
-
+      inputs[0].value = elementChildren[0].textContent;
+      inputs[1].value = elementChildren[1].textContent;
+      inputs.forEach((input) => {
+        input.disabled = false;
+      });
+      formButtons.forEach((btn) => {
+        btn.disabled = false;
+      });
+      editElement(currentTargetParent, formElement, inputs)
     });
   });
 };

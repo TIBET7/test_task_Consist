@@ -1,11 +1,11 @@
 'use strict';
 
-const disableFormInputs = (elementsList, firstInput, secondInput, thirdInput) => {
+const disableFormInputs = (elementsList, inputs) => {
   elementsList.forEach((element) => {
     if (!element.classList.contains('.active')) {
-      firstInput.disabled = true;
-      secondInput.disabled = true;
-      thirdInput.disabled = true;
+      inputs.forEach((input) => {
+        input.disabled = true;
+      });
     }
   });
 };

@@ -103,12 +103,18 @@
   padding-left: 15px;
   padding-top: 10px;
   width: 150px;
+  max-width: 150px;
+
+  word-wrap: break-word;
 }
 
 .elements__item-description {
   width: 202px;
+  max-width: 202px;
   padding-top: 10px;
   padding-left: 17px;
+
+  word-wrap: break-word;
 }
 
 .elements__item-visibility.invisible {
