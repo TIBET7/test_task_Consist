@@ -41,7 +41,7 @@ checkAll(mainCheckbox, checkboxes);
 
 filterElements(hiddenElementsBtn, visibleElementsBtn, hiddenElements);
 
-//filterElements(visibleElementsBtn, hiddenElementsBtn, visibleElements);
+// filterElements(visibleElementsBtn, hiddenElementsBtn, visibleElements);
 
 deleteCheckedElements(deleteBtn, checkboxes, elementsBlock, inputsList, formButtonsList);
 
@@ -68,6 +68,9 @@ addBtn.addEventListener('click', () => {
   const updatedVisibleElements = document.querySelectorAll('.elements__item.visible');
   console.log(updatedVisibleElements);
   filterElements(visibleElementsBtn, hiddenElementsBtn, updatedVisibleElements);
+  const updatedElements = document.querySelectorAll('.elements__item');
+  const updatedElementsMainBlocks = document.querySelectorAll('.elements__item-main');
+  activateElement(updatedElements, updatedElementsMainBlocks, inputsList, form, formButtonsList);
 });
 
 

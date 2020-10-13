@@ -16,7 +16,27 @@ const filterElements = (basicBtn, reverseBtn, elements) => {
       }
     }
   });
-}
+};
+
+
+// const filterElements = (basicBtn, reverseBtn, elements) => {
+//   basicBtn.addEventListener('click', () => {
+//     if (reverseBtn.classList.contains('active')) {
+//       basicBtn.classList.toggle('active');
+//       if (basicBtn.classList.contains('active')) {
+//         elements.forEach((element) => {
+//           if (element.classList.contains('hide')) {
+//           element.classList.remove('hide');
+//           }
+//           if (!element.classList.contains('hide')) {
+//           element.classList.add('hide');
+//           }
+//         });
+//       }
+//     }
+//   });
+// };
+
 
 
 // const filterElements = (basicBtn, reverseBtn, elements) => {
