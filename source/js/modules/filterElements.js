@@ -4,12 +4,31 @@ const filterElements = (basicBtn, reverseBtn, elements) => {
   basicBtn.addEventListener('click', () => {
     if (reverseBtn.classList.contains('active')) {
       basicBtn.classList.toggle('active');
-      elements.forEach((element) => {
-        element.classList.toggle('hide');
-      });
+      if (basicBtn.classList.contains('active')) {
+        elements.forEach((element) => {
+          element.classList.remove('hide');
+        });
+      }
+      if (!basicBtn.classList.contains('active')) {
+        elements.forEach((element) => {
+          element.classList.add('hide');
+        });
+      }
     }
   });
 }
+
+
+// const filterElements = (basicBtn, reverseBtn, elements) => {
+//   basicBtn.addEventListener('click', () => {
+//     if (reverseBtn.classList.contains('active')) {
+//       basicBtn.classList.toggle('active');
+//       elements.forEach((element) => {
+//         element.classList.toggle('hide');
+//       });
+//     }
+//   });
+// }
 
 export default filterElements;
 

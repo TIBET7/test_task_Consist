@@ -24,6 +24,7 @@ const hiddenElementsBtn = document.querySelector('.button--hidden');
 const visibleElementsBtn = document.querySelector('.button--visible');
 const elementsBlock = document.querySelector('.elements__items');
 const form = document.querySelector('.editor__form');
+const elementsNames =  document.querySelectorAll('.elements__item-name');
 
 const inputsList = [nameInput, descriptionInput, editorCheckbox];
 const formButtonsList = [submitBtn, resetBtn];
@@ -32,16 +33,42 @@ inputsList.forEach((input) => {
   input.disabled = true;
 });
 
+// Basic block
+
 activateElement(elements, elementsMainBlocks, inputsList, form, formButtonsList);
 
 checkAll(mainCheckbox, checkboxes);
 
 filterElements(hiddenElementsBtn, visibleElementsBtn, hiddenElements);
-filterElements(visibleElementsBtn, hiddenElementsBtn, visibleElements);
+
+//filterElements(visibleElementsBtn, hiddenElementsBtn, visibleElements);
 
 deleteCheckedElements(deleteBtn, checkboxes, elementsBlock, inputsList, formButtonsList);
 
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener('click', () =>{
+    console.log('tst')
+    if (checkbox.checked) {
+      deleteBtn.disabled = false;
+    }
+  });
+});
 
+elementsNames.forEach((item, i) => {
+  localStorage.setItem(`Элемент${i}`, item.textContent);
+})
+
+// Add elements block
+
+
+addBtn.addEventListener('click', () => {
+  addElement(elementsBlock, '.elements__item', inputsList);
+  const updatedCheckboxes = document.querySelectorAll('.check__input--element');
+  checkAll(mainCheckbox, updatedCheckboxes);
+  const updatedVisibleElements = document.querySelectorAll('.elements__item.visible');
+  console.log(updatedVisibleElements);
+  filterElements(visibleElementsBtn, hiddenElementsBtn, updatedVisibleElements);
+});
 
 
 
