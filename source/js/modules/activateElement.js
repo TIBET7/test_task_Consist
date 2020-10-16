@@ -5,6 +5,7 @@ import editElement from './editElement.js'
 const activateElement = (elementsList, elementsMainBlockList, inputs, formElement, formButtons) => {
   elementsMainBlockList.forEach((element) => {
     element.addEventListener('click', (event) => {
+      console.log(event.currentTarget)
       for (let i = 0; i < elementsList.length; i += 1) {
         elementsList[i].classList.remove('active');
       }

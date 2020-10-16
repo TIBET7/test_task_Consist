@@ -74,6 +74,7 @@
 .elements__item-main {
   display: flex;
   @include basic-light-text;
+  cursor: pointer;
 }
 
 .elements__item.visible,
