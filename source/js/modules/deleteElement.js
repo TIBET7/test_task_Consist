@@ -1,7 +1,7 @@
 'use strict'
 
 const deleteCheckedElements = (deleteButton, checkboxList, parent, inputs, formButtons) => {
-  deleteButton.addEventListener('click', () => {
+  // deleteButton.addEventListener('click', () => {
     checkboxList.forEach((checkbox) => {
       console.log(checkboxList);
       if (checkbox.checked) {
@@ -20,7 +20,7 @@ const deleteCheckedElements = (deleteButton, checkboxList, parent, inputs, formB
         }
       }
     });
-  });
+  // });
 };
 
 export default deleteCheckedElements;

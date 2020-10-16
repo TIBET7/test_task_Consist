@@ -1,215 +1,142 @@
-'use strict';
+'use strict'
 
-import checkAll from './modules/checkAll.js';
-import deleteCheckedElements from './modules/deleteElement.js';
-import activateElement from './modules/activateElement.js';
-import addElement from './modules/addElement.js';
-import filterElements from './modules/filterElements.js';
-// import disableFormInputs from './modules/disableFormInputs.js';
-
-const mainCheckbox = document.querySelector('.check__input--main');
-let checkboxes = document.querySelectorAll('.check__input--element');
-const elements = document.querySelectorAll('.elements__item');
-const visibleElements = document.querySelectorAll('.elements__item.visible');
-const hiddenElements = document.querySelectorAll('.elements__item.hidden');
-const elementsMainBlocks = document.querySelectorAll('.elements__item-main');
 const nameInput = document.querySelector('.editor__element-name');
 const descriptionInput = document.querySelector('.editor__element-description');
 const editorCheckbox = document.querySelector('.check__input--editor')
-const addBtn = document.querySelector('.button--add');
-const deleteBtn = document.querySelector('.button--delete');
+const inputs = [nameInput, descriptionInput, editorCheckbox];
+const form = document.querySelector('.editor__form');
 const submitBtn = document.querySelector('.editor__submit');
 const resetBtn = document.querySelector('.editor__reset');
-const hiddenElementsBtn = document.querySelector('.button--hidden');
-const visibleElementsBtn = document.querySelector('.button--visible');
+const formButtons = [submitBtn, resetBtn];
+const addBtn = document.querySelector('.button--add');
+const deleteBtn = document.querySelector('.button--delete');
 const elementsBlock = document.querySelector('.elements__items');
-const form = document.querySelector('.editor__form');
-const elementsNames =  document.querySelectorAll('.elements__item-name');
 
-const inputsList = [nameInput, descriptionInput, editorCheckbox];
-const formButtonsList = [submitBtn, resetBtn];
-
-inputsList.forEach((input) => {
+inputs.forEach((input) => {
   input.disabled = true;
 });
 
-// Basic block
 
-activateElement(elements, elementsMainBlocks, inputsList, form, formButtonsList);
 
-checkAll(mainCheckbox, checkboxes);
+// const editElementData = (element) => {
+//   const formData = new FormData(element);
+//   const formDataObject = Object.fromEntries(formData);
+//   if (element.classList.contains('active')) {
+//     element.children[1].children[0].textContent = formDataObject.name;
+//     element.children[1].children[1].textContent = formDataObject.description;
+//   }
+// };
 
-filterElements(hiddenElementsBtn, visibleElementsBtn, hiddenElements);
 
-// filterElements(visibleElementsBtn, hiddenElementsBtn, visibleElements);
 
-deleteCheckedElements(deleteBtn, checkboxes, elementsBlock, inputsList, formButtonsList);
+// const resetEditingElementData = (element) => {
+//   inputs[0].value = elementName;
+//   inputs[1].value = elementDescription;
+//   element.children[1].children[0].textContent = elementName;
+//   element.children[1].children[1].textContent = elementDescription;
+// }
 
-checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener('click', () =>{
-    console.log('tst')
-    if (checkbox.checked) {
-      deleteBtn.disabled = false;
-    }
+const checkAll = () => {
+  const mainCheckbox = document.querySelector('.check__input--main');
+  const checkboxes = document.querySelectorAll('.check__input--element');
+  mainCheckbox.addEventListener('click', () => {
+    checkboxes.forEach((checkbox) => {
+      if (mainCheckbox.checked) {
+        checkbox.checked = true;
+      }
+      if (!mainCheckbox.checked) {
+        checkbox.checked = false;
+      }
+    });
   });
-});
+};
 
-elementsNames.forEach((item, i) => {
-  localStorage.setItem(`Элемент${i}`, item.textContent);
-})
+checkAll();
 
-// Add elements block
+const activateElement = () => {
+  const elements = document.querySelectorAll('.elements__item');
+  const elementsMainBlocks = document.querySelectorAll('.elements__item-main');
+  elementsMainBlocks.forEach((element) => {
+    element.addEventListener('click', (event) => {
+      console.log(event.currentTarget)
+      for (let i = 0; i < elements.length; i += 1) {
+        elements[i].classList.remove('active');
+      }
+      const currentTargetParent = event.currentTarget.parentElement;
+      currentTargetParent.classList.add('active');
+      const elementChildren = event.currentTarget.children;
+      inputs[0].value = elementChildren[0].textContent;
+      inputs[1].value = elementChildren[1].textContent;
+      inputs.forEach((input) => {
+        input.disabled = false;
+      });
+      formButtons.forEach((btn) => {
+        btn.disabled = false;
+      });
+    });
+  });
+};
 
+activateElement();
+
+const addElement = () => {
+  const newElement = document.createElement('li');
+  newElement.classList.add('elements__item');
+  newElement.innerHTML = `<div class="elements__item-checkbox">
+  <label class="check">
+    <input type="checkbox" class="check__input check__input--element visually-hidden" name="header-checkbox">
+    <span class="check__box"></span>
+  </label>
+  </div>
+  <div class="elements__item-main">
+    <div class="elements__item-name">Без названия</div>
+  <div class="elements__item-description"></div>
+  <div class="elements__item-visibility"></div>
+  </div>`;
+  elementsBlock.append(newElement);
+  const elements = document.querySelectorAll('.elements__item');
+  elements.forEach((element) => {
+    element.classList.remove('active');
+  });
+  newElement.classList.add('active');
+  newElement.classList.add('visible');
+
+  let elementName = newElement.children[1].children[0].textContent;
+  let elementDescription = newElement.children[1].children[1].textContent;
+
+  inputs[0].value = elementName;
+  inputs[1].value = elementDescription;
+};
 
 addBtn.addEventListener('click', () => {
-  addElement(elementsBlock, '.elements__item', inputsList);
-  const updatedCheckboxes = document.querySelectorAll('.check__input--element');
-  checkAll(mainCheckbox, updatedCheckboxes);
-  const updatedVisibleElements = document.querySelectorAll('.elements__item.visible');
-  console.log(updatedVisibleElements);
-  filterElements(visibleElementsBtn, hiddenElementsBtn, updatedVisibleElements);
-  const updatedElements = document.querySelectorAll('.elements__item');
-  const updatedElementsMainBlocks = document.querySelectorAll('.elements__item-main');
-  activateElement(updatedElements, updatedElementsMainBlocks, inputsList, form, formButtonsList);
+  addElement();
+  checkAll();
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// addElement(addBtn, elementsBlock, '.elements__item', nameInput, descriptionInput);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// addBtn.addEventListener('click', () => {
-//   nameInput.disabled = false;
-//   descriptionInput.disabled = false;
-//   editorCheckbox.disabled = false;
-//   const updatedCheckboxes = document.querySelectorAll('.check__input--element');
-//   const updatedElements = document.querySelectorAll('.elements__item');
-//   const updatedVisibleElements = document.querySelectorAll('.elements__item.visible');
-//   const updatedElementsMainBlocks = document.querySelectorAll('.elements__item-main');
-//   checkAll(mainCheckbox, updatedCheckboxes);
-//   activateElement(updatedElements, updatedElementsMainBlocks, nameInput, descriptionInput, editorCheckbox);
-//   filterElements(visibleElementsBtn, hiddenElementsBtn, updatedVisibleElements);
-// });
-
-// deleteBtn.addEventListener('click', () => {
-//   const updatedCheckboxes = document.querySelectorAll('.check__input--element');
-//   const updatedElements = document.querySelectorAll('.elements__item');
-//   const updatedVisibleElements = document.querySelectorAll('.elements__item.visible');
-//   const updatedElementsMainBlocks = document.querySelectorAll('.elements__item-main');
-//   checkAll(mainCheckbox, updatedCheckboxes);
-//   activateElement(updatedElements, updatedElementsMainBlocks, nameInput, descriptionInput, editorCheckbox);
-//   deleteCheckedElements(updatedCheckboxes, elementsBlock);
-//   filterElements(visibleElementsBtn, hiddenElementsBtn, updatedVisibleElements);
-//   nameInput.value = '';
-//   descriptionInput.value= '';
-//   editorCheckbox.checked = false;
-//   nameInput.disabled = true;
-//   descriptionInput.disabled = true;
-//   editorCheckbox.disabled = true;
-// });
-
-
-// elements.forEach((element) => {
-//   if (!element.classList.contains('.active')) {
-//     nameInput.disabled = true;
-//     descriptionInput.disabled = true;
-//   }
-// });
-
-
-
-// form.addEventListener('submit', (event) => {
-//   event.preventDefault();
-//   const formData = new FormData(event.target);
-//   const formDataObject = Object.fromEntries(formData);
-//   console.log(formDataObject);
-// });
-
-
-
-// form.addEventListener('reset', (event) => {
-//   elements.forEach((element) => {
-//     if (element.classList.contains('active')) {
-//       nameInput.value = elementChildren[0].textContent;
-//       descriptionInput.value = elementChildren[1].textContent;
-//     }
-//   })
-// });
-
-
-
-// resetBtn.addEventListener('click', (event) => {
-    //   event.preventDefault();
-    //   nameInput.value = elementChildren[1].textContent;
-    //   descriptionInput.value = elementChildren[2].textContent;
-    // });
-    // submitBtn.addEventListener('click', (event) => {
-    //   event.preventDefault();
-    //   elementChildren[1].textContent = nameInput.value;
-    //   elementChildren[2].textContent = descriptionInput.value;
-    // });
-
-
-
-
-
-
-
-
-
-
-
+const deleteElement = () => {
+  const checkboxes = document.querySelectorAll('.check__input--element');
+  checkboxes.forEach((checkbox) => {
+    console.log(checkbox);
+    if (checkbox.checked) {
+      const userConfirm = confirm('Confirm deletion of selected item');
+      if (userConfirm) {
+        console.log(checkbox.parentElement.parentElement.parentElement);
+        elementsBlock.removeChild(checkbox.parentElement.parentElement.parentElement);
+        inputs.forEach((input) => {
+          input.disabled = true;
+          input.value = '';
+        });
+        formButtons.forEach((btn) => {
+          btn.disabled = true;
+        });
+        deleteBtn.disabled = true;
+      }
+    }
+  });
+};
+
+deleteBtn.addEventListener('click', () => deleteElement());
 
 
 
