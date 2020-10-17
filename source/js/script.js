@@ -10,7 +10,10 @@ const resetBtn = document.querySelector('.editor__reset');
 const formButtons = [submitBtn, resetBtn];
 const addBtn = document.querySelector('.button--add');
 const deleteBtn = document.querySelector('.button--delete');
-const elementsBlock = document.querySelector('.elements__items');
+
+const hiddenElementsBtn = document.querySelector('.button--hidden');
+const visibleElementsBtn = document.querySelector('.button--visible');
+
 
 inputs.forEach((input) => {
   input.disabled = true;
@@ -80,6 +83,7 @@ const activateElement = () => {
 activateElement();
 
 const addElement = () => {
+  const elementsBlock = document.querySelector('.elements__items');
   const newElement = document.createElement('li');
   newElement.classList.add('elements__item');
   newElement.innerHTML = `<div class="elements__item-checkbox">
@@ -108,13 +112,42 @@ const addElement = () => {
   inputs[1].value = elementDescription;
 };
 
-addBtn.addEventListener('click', () => {
-  addElement();
-  checkAll();
-});
+const filterVisibleElements = () => {
+  const visibleElements = document.querySelectorAll('.elements__item.visible');
+  if (hiddenElementsBtn.classList.contains('active')) {
+    visibleElementsBtn.classList.toggle('active');
+    if (visibleElementsBtn.classList.contains('active')) {
+      visibleElements.forEach((element) => {
+        element.classList.remove('hide');
+      });
+    }
+    if (!visibleElementsBtn.classList.contains('active')) {
+      visibleElements.forEach((element) => {
+        element.classList.add('hide');
+      });
+    }
+  }
+};
 
+const filterHiddenElements = () => {
+  const hiddenElements = document.querySelectorAll('.elements__item.hidden');
+  if (visibleElementsBtn.classList.contains('active')) {
+    hiddenElementsBtn.classList.toggle('active');
+    if (hiddenElementsBtn.classList.contains('active')) {
+      hiddenElements.forEach((element) => {
+        element.classList.remove('hide');
+      });
+    }
+    if (!hiddenElementsBtn.classList.contains('active')) {
+      hiddenElements.forEach((element) => {
+        element.classList.add('hide');
+      });
+    }
+  }
+};
 
-const deleteElement = () => {
+const deleteElement = (elements) => {
+
   const checkboxes = document.querySelectorAll('.check__input--element');
   checkboxes.forEach((checkbox) => {
     console.log(checkbox);
@@ -122,7 +155,7 @@ const deleteElement = () => {
       const userConfirm = confirm('Confirm deletion of selected item');
       if (userConfirm) {
         console.log(checkbox.parentElement.parentElement.parentElement);
-        elementsBlock.removeChild(checkbox.parentElement.parentElement.parentElement);
+        elements.removeChild(checkbox.parentElement.parentElement.parentElement);
         inputs.forEach((input) => {
           input.disabled = true;
           input.value = '';
@@ -136,7 +169,52 @@ const deleteElement = () => {
   });
 };
 
-deleteBtn.addEventListener('click', () => deleteElement());
+
+const checkActiveCheckboxes = () => {
+  const checkboxes = document.querySelectorAll('.check__input--element');
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('click', () => {
+      console.log('done');
+      if (checkbox.checked) {
+        deleteBtn.disabled = false;
+      }
+
+      if (!checkbox.checked) {
+        deleteBtn.disabled = true;
+      }
+    });
+  });
+};
+
+checkActiveCheckboxes();
+
+
+
+
+
+
+deleteBtn.addEventListener('click', () => {
+  const elementsBlock = document.querySelector('.elements__items');
+  console.log('delete');
+  deleteElement(elementsBlock);
+  checkActiveCheckboxes();
+});
+
+addBtn.addEventListener('click', () => {
+  addElement();
+  checkAll();
+  deleteElement();
+});
+
+
+hiddenElementsBtn.addEventListener('click', () => {
+  filterHiddenElements();
+});
+
+visibleElementsBtn.addEventListener('click', () => {
+  filterVisibleElements();
+});
+
 
 
 
