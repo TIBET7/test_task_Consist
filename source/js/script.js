@@ -9,10 +9,12 @@ import filterHiddenElements from './modules/filterHiddenElements.js';
 import deleteElements from './modules/deleteElements.js';
 import checkCheckboxes from './modules/checkCheckboxes.js';
 import checkMainCheckbox from './modules/checkMainCheckbox.js';
+import setElementsToLocalStorage from './modules/setElementsToLocalStorage.js';
 
 
 const mainCheckbox = document.querySelector('.check__input--main');
 const checkboxes = document.querySelectorAll('.check__input--element');
+const elementsNames = document.querySelectorAll('.elements__item-name');
 const nameInput = document.querySelector('.editor__element-name');
 const descriptionInput = document.querySelector('.editor__element-description');
 const editorCheckbox = document.querySelector('.check__input--editor')
@@ -26,7 +28,6 @@ const hiddenElementsBtn = document.querySelector('.button--hidden');
 const visibleElementsBtn = document.querySelector('.button--visible');
 const basicDisabledButtons = [submitBtn, resetBtn, deleteBtn];
 const formButtons = [submitBtn, resetBtn, deleteBtn];
-
 
 setBasicStateDisabledControls(inputs, basicDisabledButtons);
 
@@ -69,6 +70,7 @@ deleteBtn.addEventListener('click', () => {
   deleteElements(elementsBlock, inputs, formButtons, deleteBtn, mainCheckbox);
   checkCheckboxes(deleteBtn);
   checkMainCheckbox(mainCheckbox, deleteBtn);
+  setElementsToLocalStorage();
 });
 
 addBtn.addEventListener('click', () => {
@@ -77,6 +79,7 @@ addBtn.addEventListener('click', () => {
   checkAll(mainCheckbox, checkboxes);
   checkCheckboxes(deleteBtn);
   activateElement(inputs, formButtons);
+  setElementsToLocalStorage();
 });
 
 
@@ -87,3 +90,5 @@ hiddenElementsBtn.addEventListener('click', () => {
 visibleElementsBtn.addEventListener('click', () => {
   filterVisibleElements(visibleElementsBtn, hiddenElementsBtn);
 });
+
+setElementsToLocalStorage();
