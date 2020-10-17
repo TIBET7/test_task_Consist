@@ -18,7 +18,6 @@ const deleteBtn = document.querySelector('.button--delete');
 const hiddenElementsBtn = document.querySelector('.button--hidden');
 const visibleElementsBtn = document.querySelector('.button--visible');
 
-
 inputs.forEach((input) => {
   input.disabled = true;
 });
@@ -45,11 +44,6 @@ const checkAll = () => {
 };
 
 checkAll();
-
-
-
-
-
 
 elementsMainBlocks.forEach((element) => {
   element.addEventListener('click', (event) => {
@@ -95,15 +89,11 @@ form.addEventListener('reset', (event) => {
 });
 
 
-
-// activateElement();
-
 const activateElement = () => {
   const elements = document.querySelectorAll('.elements__item');
   const elementsMainBlocks = document.querySelectorAll('.elements__item-main');
   elementsMainBlocks.forEach((element) => {
     element.addEventListener('click', (event) => {
-      //console.log(event.currentTarget)
       for (let i = 0; i < elements.length; i += 1) {
         elements[i].classList.remove('active');
       }
@@ -125,29 +115,6 @@ const activateElement = () => {
 };
 
 activateElement();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const addElement = () => {
   const elementsBlock = document.querySelector('.elements__items');
@@ -178,26 +145,6 @@ const addElement = () => {
   inputs[0].value = elementName;
   inputs[1].value = elementDescription;
 };
-
-
-
-
-
-// const editElementData = () => {
-//   const formData = new FormData(element);
-//   const formDataObject = Object.fromEntries(formData);
-//   if (element.classList.contains('active')) {
-//     element.children[1].children[0].textContent = formDataObject.name;
-//     element.children[1].children[1].textContent = formDataObject.description;
-//   }
-// };
-
-// const resetEditingElementData = () => {
-//   inputs[0].value = elementName;
-//   inputs[1].value = elementDescription;
-//   element.children[1].children[0].textContent = elementName;
-//   element.children[1].children[1].textContent = elementDescription;
-// }
 
 const filterVisibleElements = () => {
   const visibleElements = document.querySelectorAll('.elements__item.visible');
@@ -234,10 +181,8 @@ const filterHiddenElements = () => {
 };
 
 const deleteElement = (elements) => {
-
   const checkboxes = document.querySelectorAll('.check__input--element');
   checkboxes.forEach((checkbox) => {
-    //console.log(checkbox);
     if (checkbox.checked) {
       const userConfirm = confirm('Confirm deletion of selected item');
       if (userConfirm) {
@@ -259,16 +204,13 @@ const deleteElement = (elements) => {
 
 deleteElement();
 
-
 const checkCheckboxes = () => {
   const checkboxes = document.querySelectorAll('.check__input--element');
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('click', () => {
-      //console.log('done');
       if (checkbox.checked) {
         deleteBtn.disabled = false;
       }
-
       if (!checkbox.checked) {
         deleteBtn.disabled = true;
       }
@@ -283,7 +225,6 @@ const checkMainCheckbox = () => {
     if (mainCheckbox.checked) {
       deleteBtn.disabled = false;
     }
-
     if (!mainCheckbox.checked) {
       deleteBtn.disabled = true;
     }
@@ -293,85 +234,19 @@ const checkMainCheckbox = () => {
 
 checkMainCheckbox();
 
-
-
-
-
-
 deleteBtn.addEventListener('click', () => {
   const elementsBlock = document.querySelector('.elements__items');
-  //console.log('delete');
   deleteElement(elementsBlock);
   checkCheckboxes();
   checkMainCheckbox();
-
-
-
-  // form.addEventListener('submit', (event) => {
-  //   event.preventDefault();
-  //   const elements = document.querySelectorAll('.elements__item');
-  //   const formData = new FormData(event.target);
-  //   const formDataObject = Object.fromEntries(formData);
-  //   elements.forEach((element) => {
-  //     if (element.classList.contains('active')) {
-  //       element.children[1].children[0].textContent = formDataObject.name;
-  //       element.children[1].children[1].textContent = formDataObject.description;
-  //     }
-  //   });
-  // });
-
-  // form.addEventListener('reset', (event) => {
-  //   event.preventDefault();
-  //   const elements = document.querySelectorAll('.elements__item');
-  //   elements.forEach((element) => {
-  //     if (element.classList.contains('active')) {
-  //       let elementName = element.children[1].children[0].textContent;
-  //       let elementDescription = element.children[1].children[1].textContent;
-  //       console.log(elementName)
-  //       console.log(elementDescription)
-  //       inputs[0].value = elementName;
-  //       inputs[1].value = elementDescription;
-  //     }
-  //   });
-  // });
-
 });
 
 addBtn.addEventListener('click', () => {
   addElement();
-  const elements = document.querySelectorAll('.elements__item');
+  // const elements = document.querySelectorAll('.elements__item');
   checkAll();
   checkCheckboxes();
   activateElement();
-
-  // form.addEventListener('submit', (event) => {
-  //   event.preventDefault();
-  //   const elements = document.querySelectorAll('.elements__item');
-  //   const formData = new FormData(event.target);
-  //   const formDataObject = Object.fromEntries(formData);
-  //   elements.forEach((element) => {
-  //     if (element.classList.contains('active')) {
-  //       element.children[1].children[0].textContent = formDataObject.name;
-  //       element.children[1].children[1].textContent = formDataObject.description;
-  //     }
-  //   });
-  // });
-
-  // form.addEventListener('reset', (event) => {
-  //   event.preventDefault();
-  //   const elements = document.querySelectorAll('.elements__item');
-  //   elements.forEach((element) => {
-  //     if (element.classList.contains('active')) {
-  //       let elementName = element.children[1].children[0].textContent;
-  //       let elementDescription = element.children[1].children[1].textContent;
-  //       console.log(elementName)
-  //       console.log(elementDescription)
-  //       inputs[0].value = elementName;
-  //       inputs[1].value = elementDescription;
-  //     }
-  //   });
-  // });
-
 });
 
 
