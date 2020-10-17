@@ -42,14 +42,14 @@
 быть пустыми и заблокированными (disabled).
 5. Реализовать удаление выбранных с помощью чекбоксов элементов:
 - если не выбрано не одного элемента, кнопка должны быть заблокирована (disabled);
-- нажатие кнопки ![alt text](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/delete.svg) вызывает модальное окно (confirm) для подтверждения удаления;
+- нажатие кнопки ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/deleteBtn.svg) вызывает модальное окно (confirm) для подтверждения удаления;
 - удаляются все выбранные элементы.
 6. Реализовать фильтрацию «видимых» и «невидимых» элементов:
-- с помощью кнопок ![alt text](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/visible.svg) ![alt text](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/hidden.svg) возможно отфильтровать видимые или не видимые элементы;
-- каждая кнопка работает как toggle (например, нажатие на ![alt text](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/visible.svg) отобразит все «видимые»
+- с помощью кнопок ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/visible_active.svg) ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/hidden.svg) возможно отфильтровать видимые или не видимые элементы;
+- каждая кнопка работает как toggle (например, нажатие на ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/visible_inactie.svg) отобразит все «видимые»
 элементы, повторное нажатие выключит отображение всех «видимых» элементов);
-- состояние фильтра (вкл/выкл) визуализируется по цвету кнопки (активный цвет —
-отображение включено, серый — выключено)
+- состояние фильтра (вкл/выкл) визуализируется по цвету кнопки (активный цвет ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/visible_active.svg) —
+отображение включено, серый ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/visible_inactie.svg) — выключено)
 - возможно активация одновременно двух фильтров, что означает показывать все элементы;
 - но отключать одновременно оба нельзя, т. е. клик по активной кнопке при выключенной
 второй не должен приносить никакого эффекта.
