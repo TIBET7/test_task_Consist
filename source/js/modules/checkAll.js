@@ -1,8 +1,8 @@
 'use strict'
 
-const checkAll = (rootCheckbox, checkboxesList) => {
+const checkAll = (rootCheckbox, checkboxes) => {
   rootCheckbox.addEventListener('click', () => {
-    checkboxesList.forEach((checkbox) => {
+    checkboxes.forEach((checkbox) => {
       if (rootCheckbox.checked) {
         checkbox.checked = true;
       }

@@ -1,13 +1,12 @@
 'use strict';
 
-import editElement from './editElement.js'
-
-const activateElement = (elementsList, elementsMainBlockList, inputs, formElement, formButtons) => {
-  elementsMainBlockList.forEach((element) => {
+const activateElement = (inputs, formButtons) => {
+  const elements = document.querySelectorAll('.elements__item');
+  const elementsMainBlocks = document.querySelectorAll('.elements__item-main');
+  elementsMainBlocks.forEach((element) => {
     element.addEventListener('click', (event) => {
-      console.log(event.currentTarget)
-      for (let i = 0; i < elementsList.length; i += 1) {
-        elementsList[i].classList.remove('active');
+      for (let i = 0; i < elements.length; i += 1) {
+        elements[i].classList.remove('active');
       }
       const currentTargetParent = event.currentTarget.parentElement;
       currentTargetParent.classList.add('active');
@@ -20,9 +19,7 @@ const activateElement = (elementsList, elementsMainBlockList, inputs, formElemen
       formButtons.forEach((btn) => {
         btn.disabled = false;
       });
-      editElement(currentTargetParent, formElement, inputs)
     });
   });
 };
-
 export default activateElement;
