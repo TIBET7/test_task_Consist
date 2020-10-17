@@ -45,7 +45,7 @@
 - нажатие кнопки ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/deleteBtn.svg) вызывает модальное окно (confirm) для подтверждения удаления;
 - удаляются все выбранные элементы.
 6. Реализовать фильтрацию «видимых» и «невидимых» элементов:
-- с помощью кнопок ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/visible_active.svg) ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/hidden.svg) возможно отфильтровать видимые или не видимые элементы;
+- с помощью кнопок ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/visible_active.svg) ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/hidden_inactive.svg) возможно отфильтровать видимые или не видимые элементы;
 - каждая кнопка работает как toggle (например, нажатие на ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/visible_inactie.svg) отобразит все «видимые»
 элементы, повторное нажатие выключит отображение всех «видимых» элементов);
 - состояние фильтра (вкл/выкл) визуализируется по цвету кнопки (активный цвет ![](https://github.com/TIBET7/test_task_Consist/blob/master/source/img/visible_active.svg) —
