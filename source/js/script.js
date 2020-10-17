@@ -23,6 +23,12 @@ inputs.forEach((input) => {
   input.disabled = true;
 });
 
+formButtons.forEach((btn) => {
+  btn.disabled = true;
+});
+
+deleteBtn.disabled = true;
+
 const checkAll = () => {
   const mainCheckbox = document.querySelector('.check__input--main');
   const checkboxes = document.querySelectorAll('.check__input--element');
@@ -82,8 +88,6 @@ form.addEventListener('reset', (event) => {
     if (element.classList.contains('active')) {
       let elementName = element.children[1].children[0].textContent;
       let elementDescription = element.children[1].children[1].textContent;
-      console.log(elementName)
-      console.log(elementDescription)
       inputs[0].value = elementName;
       inputs[1].value = elementDescription;
     }
@@ -94,33 +98,33 @@ form.addEventListener('reset', (event) => {
 
 // activateElement();
 
-// const activateElement = () => {
-//   const elements = document.querySelectorAll('.elements__item');
-//   const elementsMainBlocks = document.querySelectorAll('.elements__item-main');
-//   elementsMainBlocks.forEach((element) => {
-//     element.addEventListener('click', (event) => {
-//       //console.log(event.currentTarget)
-//       for (let i = 0; i < elements.length; i += 1) {
-//         elements[i].classList.remove('active');
-//       }
-//       const currentTargetParent = event.currentTarget.parentElement;
-//       currentTargetParent.classList.add('active');
-//       const elementChildren = event.currentTarget.children;
-//       let elementName = currentTargetParent.children[1].children[0].textContent;
-//       let elementDescription = currentTargetParent.children[1].children[1].textContent;
-//       inputs[0].value = elementChildren[0].textContent;
-//       inputs[1].value = elementChildren[1].textContent;
-//       inputs.forEach((input) => {
-//         input.disabled = false;
-//       });
-//       formButtons.forEach((btn) => {
-//         btn.disabled = false;
-//       });
-//     });
-//   });
-// };
+const activateElement = () => {
+  const elements = document.querySelectorAll('.elements__item');
+  const elementsMainBlocks = document.querySelectorAll('.elements__item-main');
+  elementsMainBlocks.forEach((element) => {
+    element.addEventListener('click', (event) => {
+      //console.log(event.currentTarget)
+      for (let i = 0; i < elements.length; i += 1) {
+        elements[i].classList.remove('active');
+      }
+      const currentTargetParent = event.currentTarget.parentElement;
+      currentTargetParent.classList.add('active');
+      const elementChildren = event.currentTarget.children;
+      let elementName = currentTargetParent.children[1].children[0].textContent;
+      let elementDescription = currentTargetParent.children[1].children[1].textContent;
+      inputs[0].value = elementChildren[0].textContent;
+      inputs[1].value = elementChildren[1].textContent;
+      inputs.forEach((input) => {
+        input.disabled = false;
+      });
+      formButtons.forEach((btn) => {
+        btn.disabled = false;
+      });
+    });
+  });
+};
 
-// activateElement();
+activateElement();
 
 
 
@@ -253,6 +257,8 @@ const deleteElement = (elements) => {
   });
 };
 
+deleteElement();
+
 
 const checkCheckboxes = () => {
   const checkboxes = document.querySelectorAll('.check__input--element');
@@ -298,13 +304,74 @@ deleteBtn.addEventListener('click', () => {
   deleteElement(elementsBlock);
   checkCheckboxes();
   checkMainCheckbox();
+
+
+
+  // form.addEventListener('submit', (event) => {
+  //   event.preventDefault();
+  //   const elements = document.querySelectorAll('.elements__item');
+  //   const formData = new FormData(event.target);
+  //   const formDataObject = Object.fromEntries(formData);
+  //   elements.forEach((element) => {
+  //     if (element.classList.contains('active')) {
+  //       element.children[1].children[0].textContent = formDataObject.name;
+  //       element.children[1].children[1].textContent = formDataObject.description;
+  //     }
+  //   });
+  // });
+
+  // form.addEventListener('reset', (event) => {
+  //   event.preventDefault();
+  //   const elements = document.querySelectorAll('.elements__item');
+  //   elements.forEach((element) => {
+  //     if (element.classList.contains('active')) {
+  //       let elementName = element.children[1].children[0].textContent;
+  //       let elementDescription = element.children[1].children[1].textContent;
+  //       console.log(elementName)
+  //       console.log(elementDescription)
+  //       inputs[0].value = elementName;
+  //       inputs[1].value = elementDescription;
+  //     }
+  //   });
+  // });
+
 });
 
 addBtn.addEventListener('click', () => {
   addElement();
+  const elements = document.querySelectorAll('.elements__item');
   checkAll();
   checkCheckboxes();
-  // activateElement();
+  activateElement();
+
+  // form.addEventListener('submit', (event) => {
+  //   event.preventDefault();
+  //   const elements = document.querySelectorAll('.elements__item');
+  //   const formData = new FormData(event.target);
+  //   const formDataObject = Object.fromEntries(formData);
+  //   elements.forEach((element) => {
+  //     if (element.classList.contains('active')) {
+  //       element.children[1].children[0].textContent = formDataObject.name;
+  //       element.children[1].children[1].textContent = formDataObject.description;
+  //     }
+  //   });
+  // });
+
+  // form.addEventListener('reset', (event) => {
+  //   event.preventDefault();
+  //   const elements = document.querySelectorAll('.elements__item');
+  //   elements.forEach((element) => {
+  //     if (element.classList.contains('active')) {
+  //       let elementName = element.children[1].children[0].textContent;
+  //       let elementDescription = element.children[1].children[1].textContent;
+  //       console.log(elementName)
+  //       console.log(elementDescription)
+  //       inputs[0].value = elementName;
+  //       inputs[1].value = elementDescription;
+  //     }
+  //   });
+  // });
+
 });
 
 
