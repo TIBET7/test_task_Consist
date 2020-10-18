@@ -46,6 +46,7 @@ form.addEventListener('submit', (event) => {
       element.children[1].children[1].textContent = formDataObject.description;
     }
   });
+  setElementsToLocalStorage();
 });
 
 form.addEventListener('reset', (event) => {
