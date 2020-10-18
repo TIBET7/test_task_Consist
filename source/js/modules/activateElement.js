@@ -22,4 +22,5 @@ const activateElement = (inputs, formButtons) => {
     });
   });
 };
+
 export default activateElement;

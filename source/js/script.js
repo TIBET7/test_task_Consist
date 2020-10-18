@@ -14,7 +14,6 @@ import setElementsToLocalStorage from './modules/setElementsToLocalStorage.js';
 
 const mainCheckbox = document.querySelector('.check__input--main');
 const checkboxes = document.querySelectorAll('.check__input--element');
-const elementsNames = document.querySelectorAll('.elements__item-name');
 const nameInput = document.querySelector('.editor__element-name');
 const descriptionInput = document.querySelector('.editor__element-description');
 const editorCheckbox = document.querySelector('.check__input--editor')
@@ -82,7 +81,6 @@ addBtn.addEventListener('click', () => {
   activateElement(inputs, formButtons);
   setElementsToLocalStorage();
 });
-
 
 hiddenElementsBtn.addEventListener('click', () => {
   filterHiddenElements(hiddenElementsBtn, visibleElementsBtn);
