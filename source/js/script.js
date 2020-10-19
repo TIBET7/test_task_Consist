@@ -1,7 +1,6 @@
 'use strict'
 
 import setBasicStateDisabledControls from './modules/basicDisabledControls.js';
-import checkAll from './modules/checkAll.js';
 import activateElement from './modules/activateElement.js';
 import addElement from './modules/addElement.js';
 import filterVisibleElements from './modules/filterVisibleElements.js';
@@ -30,7 +29,7 @@ const formButtons = [submitBtn, resetBtn, deleteBtn];
 
 setBasicStateDisabledControls(inputs, basicDisabledButtons);
 
-checkAll(mainCheckbox, checkboxes);
+checkMainCheckbox(mainCheckbox, deleteBtn, checkboxes);
 
 activateElement(inputs, formButtons);
 
@@ -63,20 +62,18 @@ form.addEventListener('reset', (event) => {
 
 checkCheckboxes(deleteBtn);
 
-checkMainCheckbox(mainCheckbox, deleteBtn);
-
 deleteBtn.addEventListener('click', () => {
   const elementsBlock = document.querySelector('.elements__items');
   deleteElements(elementsBlock, inputs, formButtons, deleteBtn, mainCheckbox);
   checkCheckboxes(deleteBtn);
-  checkMainCheckbox(mainCheckbox, deleteBtn);
+  checkMainCheckbox(mainCheckbox, deleteBtn, checkboxes);
   setElementsToLocalStorage();
 });
 
 addBtn.addEventListener('click', () => {
   addElement(inputs);
   const checkboxes = document.querySelectorAll('.check__input--element');
-  checkAll(mainCheckbox, checkboxes);
+  checkMainCheckbox(mainCheckbox, deleteBtn, checkboxes);
   checkCheckboxes(deleteBtn);
   activateElement(inputs, formButtons);
   setElementsToLocalStorage();
