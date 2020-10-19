@@ -23,9 +23,11 @@
   padding-left: 11px;
   padding-top: 15px;
   width: 378px;
+  height: 168px;
   background-color: $active;
   border: 1px solid $header-background;
   @include basic-dark-text;
+  resize: none;
 }
 
 .editor__controls {
